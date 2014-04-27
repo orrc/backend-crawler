@@ -13,7 +13,7 @@ def baseUrl = "https://code.google.com/p/go/downloads/list?can=1&sort=-uploaded&
 def releases = [:]
 
 HtmlPage p = new WebClient().getPage(baseUrl)
-p.selectNodes("//a[starts-with(@href, '//go.googlecode.com/files/')]").collect { HtmlAnchor e ->
+p.selectNodes("//a[starts-with(@href, '//go.googlecode.com/files/')]").each { HtmlAnchor e ->
 
     def url = e.getHrefAttribute()
 
